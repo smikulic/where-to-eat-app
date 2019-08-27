@@ -28,7 +28,7 @@ export default class HomeScreen extends React.Component {
       const readableRestaurants = await listAllRestaurants();
       if (readableRestaurants.length > 0) {
         const randomRestaurant = readableRestaurants[Math.floor(Math.random() * readableRestaurants.length)].name;
-        this.setState({ restaurantPicked: randomRestaurant });
+        this.setState({ restaurantPicked: randomRestaurant, noRestaurants: false });
       } else {
         this.setState({ noRestaurants: true });
       }
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 10,
   },
   mainContainer: {
     alignItems: 'center',
@@ -120,8 +120,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   mainContainerTextSecondary: {
-    marginTop: 100,
-    marginBottom: 75,
+    marginTop: 10,
+    marginBottom: 90,
     fontSize: 26,
     color: 'rgba(96,100,109, 1)',
     lineHeight: 26,
